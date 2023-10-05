@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
-//import { ToastService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class FormComponent {
   password: string = '';
   responseApi: string = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, public toast: ToastrService) { }
 
   loginForm: FormGroup = new FormGroup({
     nombreUsuario: new FormControl('', Validators.required),
