@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormComponent } from './form/form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class ApiService {
 
   loginUser(nombreUsuario: string, password: string){
     const body = {
-      nombreUsuario,
-      password
+      nombreUsuario: nombreUsuario,
+      password: password
     };
 
-    return this.http.post(this.apiUrl, body);
+    return this.http.post(this.apiUrl, body,{responseType:'text'});
   }
 }
