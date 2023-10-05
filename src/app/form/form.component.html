@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="nombreUsuario">Nombre de usuario</label>
+        <input type="text" id="nombreUsuario" formControlName="nombreUsuario">
+        <!-- Mostrar mensaje de error si el campo es inválido -->
+        <div *ngIf="loginForm.get('nombreUsuario')?.hasError('required') && loginForm.get('nombreUsuario')?.touched" class="error-message">
+            El nombre de usuario es obligatorio.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" formControlName="password">
+        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message">
+            La Contraseña es obligatoria.
+        </div>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+</form>
+<div *ngIf="loginSuccess" class="succes-message">
+</div>
