@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormComponent } from './form/form.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8080/SisconAPI/Api/usuario/login'
+  private apiUrl = 'http://192.168.0.16:8080/SisconAPI/Api/usuario/login'
   
   constructor(private http: HttpClient) { }
 
