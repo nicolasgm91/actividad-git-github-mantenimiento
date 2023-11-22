@@ -32,7 +32,12 @@ export class FormComponent {
     this.apiService.loginUser(this.nombreUsuario, this.password)
       .subscribe((response: string) => {
         this.responseApi = response || 'Respuesta vacía';
-        this.toast.warning('Respuesta API: ' + response);
+        if (response != "Autenticación Satisfactoria") {
+          this.toast.warning('Respuesta API: ' + response, "Advertencia", { timeOut: 1900 });
+          this.toast.clear;
+        } else {
+          this.toast.success('Respuesta API: ' + response);
+        }
       },
         (error) => {
           console.error('Error en la llamada al servicio', error);
