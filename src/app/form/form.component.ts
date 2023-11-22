@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -15,7 +15,7 @@ export class FormComponent {
   password: string = '';
   responseApi: string = '';
 
-  constructor(private apiService: ApiService, public toast: ToastrService) { }
+  constructor(private apiService: ApiService, public toast: ToastrService, private router: Router) { }
 
   loginForm: FormGroup = new FormGroup({
     nombreUsuario: new FormControl('', Validators.required),
@@ -33,10 +33,10 @@ export class FormComponent {
       .subscribe((response: string) => {
         this.responseApi = response || 'Respuesta vacía';
         if (response != "Autenticación Satisfactoria") {
-          this.toast.warning('Respuesta API: ' + response, "Advertencia", { timeOut: 1900 });
-          this.toast.clear;
+          this.toast.warning('Respuesta API: ' + response, "¡Advertencia!", { timeOut: 1900 });
         } else {
-          this.toast.success('Respuesta API: ' + response);
+          this.toast.success('Respuesta API: ' + response, "¡Exito!");
+          //this.router.navigate(["G:\\Otros ordenadores\\Mi Ordenador\\Datos\\Varios\\Studio Code\\Siscon\\menu.html"])
         }
       },
         (error) => {
