@@ -32,7 +32,11 @@ export class FormComponent {
     this.apiService.loginUser(this.nombreUsuario, this.password)
       .subscribe((response: string) => {
         this.responseApi = response || 'Respuesta vacía';
-        alert('Respuesta API: ' + response);
-      });
+        this.toast.warning('Respuesta API: ' + response);
+      },
+        (error) => {
+          console.error('Error en la llamada al servicio', error);
+          this.toast.error('Hubo un error al procesar la solicitud.');
+        });
   }
 }

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://192.168.0.16:8080/SisconAPI/Api/usuario/login'
+  private apiUrl = 'http://localhost:8080/SisconAPI/Api/usuario/login'
   
   constructor(private http: HttpClient) { }
 
