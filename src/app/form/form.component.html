@@ -5,7 +5,7 @@
         </div>
         <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
         <input type="text" class="form-control" id="nombreUsuario" formControlName="nombreUsuario" [(ngModel)]="nombreUsuario"
-            placeholder="Ingrese su nombre de usuario">
+            placeholder="Ingrese su nombre de usuario" autocomplete="off" maxlength="30">
         <!-- Mostrar mensaje de error si el campo es inválido -->
         <div *ngIf="loginForm.get('nombreUsuario')?.hasError('required') && loginForm.get('nombreUsuario')?.touched" class="error-message">
             El nombre de usuario es obligatorio.
@@ -14,7 +14,7 @@
     <div class="form-group col-md-8 position-relative py-2 px-4 text-bg-secondary border border-secondary rounded-pill">
         <label for="password" class="form-label">Contraseña</label>
         <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password"
-            placeholder="Ingrese su contraseña">
+            placeholder="Ingrese su contraseña"autocomplete="off" maxlength="30">
         <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message">
             La Contraseña es obligatoria.
         </div>
