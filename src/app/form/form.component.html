@@ -16,7 +16,7 @@
         <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="password"
             placeholder="Ingrese su contraseña">
         <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message">
-            La Contraseña es obligatoria.
+            La Contraseña es obligatoria, trate nuevamente.
         </div>
     </div>
     <button type="submit" class="btn btn-primary d-grid gap-2 col-6 mx-auto btn-lg" [disabled]="!loginForm.valid" >Iniciar Sesión</button>
