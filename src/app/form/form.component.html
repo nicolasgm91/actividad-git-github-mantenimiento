@@ -1,7 +1,7 @@
 <form class="row g-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group col-md-8 position-relative py-2 px-4 text-bg-secondary border border-secondary rounded-pill">
         <div class="center-titulo">
-            <h1>SISCON</h1>
+            <h1 class="text-center fw-bold">SISCON</h1>
         </div>
         <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
         <input type="text" class="form-control" id="nombreUsuario" formControlName="nombreUsuario" [(ngModel)]="nombreUsuario"
